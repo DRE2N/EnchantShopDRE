@@ -1,0 +1,8 @@
+name: EnchantShopDRE
+main: io.github.dre2n.enchantshopdre.EnchantShopDRE
+version: ${project.version}
+author: Daniel Saukel
+commands:
+  enchbuy:
+    description: Buy an enchantment
+    aliases: [ebuy,buyench,buyenchantment]
