@@ -6,7 +6,7 @@
     <packaging>jar</packaging>
     <name>EnchantShopDRE</name>
     <build>
-        <finalName>enchantshopxs-${project.version}</finalName>
+        <finalName>enchantshopdre-${project.version}</finalName>
         <sourceDirectory>src/main/java</sourceDirectory>
         <resources>
             <resource>

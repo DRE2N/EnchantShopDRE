@@ -38,12 +38,12 @@ import org.bukkit.plugin.java.JavaPlugin;
  * @author Daniel Saukel
  */
 public class EnchantShopDRE extends JavaPlugin implements Listener {
-    
+
     Map<String, Integer> prices = new HashMap<>();
     String success = YELLOW + "You have successfully enchanted your " + DARK_AQUA + "%item%" + YELLOW + " with " + DARK_AQUA + "%enchantment%" + YELLOW + ".";
     String fail = DARK_RED + "You do not have enough experience!";
     String onInteract = "bs enchant";
-    
+
     @Override
     public void onEnable() {
         if (!getConfig().contains("success")) {
@@ -67,7 +67,7 @@ public class EnchantShopDRE extends JavaPlugin implements Listener {
         }
         getServer().getPluginManager().registerEvents(this, this);
     }
-    
+
     @EventHandler
     public void onEnchantTableInteract(PlayerInteractEvent event) {
         boolean wasOp = event.getPlayer().isOp();
@@ -78,7 +78,7 @@ public class EnchantShopDRE extends JavaPlugin implements Listener {
             event.getPlayer().setOp(wasOp);
         }
     }
-    
+
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if (!sender.isOp()) {
@@ -116,5 +116,5 @@ public class EnchantShopDRE extends JavaPlugin implements Listener {
         player.sendMessage(success.replace("%item%", name).replace("%enchantment%", enchantment.getName().replace("_", " ")));
         return true;
     }
-    
+
 }
