@@ -30,6 +30,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
+import org.bukkit.event.inventory.PrepareAnvilEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -76,6 +77,20 @@ public class EnchantShopDRE extends JavaPlugin implements Listener {
             event.getPlayer().setOp(true);
             event.getPlayer().performCommand(onInteract);
             event.getPlayer().setOp(wasOp);
+        }
+    }
+
+    @EventHandler
+    public void onAnvilUse(PrepareAnvilEvent event) {
+        if (event.getInventory().contains(Material.ENCHANTED_BOOK)) {
+            event.setResult(null);
+        }
+        ItemStack sword = event.getInventory().getItem(1);
+        if (sword == null) {
+            return;
+        }
+        if (sword.getType() == Material.IRON_SWORD || sword.getType() == Material.GOLD_SWORD || sword.getType() == Material.IRON_SWORD) {
+            event.setResult(null);
         }
     }
 
