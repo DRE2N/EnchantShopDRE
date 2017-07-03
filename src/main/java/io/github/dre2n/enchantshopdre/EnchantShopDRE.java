@@ -82,14 +82,11 @@ public class EnchantShopDRE extends JavaPlugin implements Listener {
 
     @EventHandler
     public void onAnvilUse(PrepareAnvilEvent event) {
-        if (event.getInventory().contains(Material.ENCHANTED_BOOK)) {
-            event.setResult(null);
-        }
-        ItemStack sword = event.getInventory().getItem(1);
-        if (sword == null) {
+        ItemStack item = event.getInventory().getItem(1);
+        if (item == null || !item.hasItemMeta()) {
             return;
         }
-        if (sword.getType() == Material.IRON_SWORD || sword.getType() == Material.GOLD_SWORD || sword.getType() == Material.IRON_SWORD) {
+        if (item.getItemMeta().hasEnchants()) {
             event.setResult(null);
         }
     }
